@@ -1,0 +1,23 @@
+{
+  "name": "op2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+"start:all": "concurrently --names \"INVENTORY,PAYMENT,USER\" \"cd inventory && npm run start:dev\" \"cd payment && npm run start:dev\" \"cd user && npm run start:dev\""  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/001Rishi/saga-optimist-read-exclusive-write.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/001Rishi/saga-optimist-read-exclusive-write/issues"
+  },
+  "homepage": "https://github.com/001Rishi/saga-optimist-read-exclusive-write#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
