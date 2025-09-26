@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Put } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Ctx, EventPattern, Payload, RmqContext } from '@nestjs/microservices';
 
 @Controller('')
 export class AppController {
@@ -27,5 +28,12 @@ export class AppController {
       payload.userId,
       updatedAtUTC,
     );
+  }
+
+  @EventPattern('check_message')
+  async handleCheckMessage(@Payload() data: any, @Ctx() context: RmqContext) {
+    console.log('INVENTORY received payload:', data);
+    // Add your logic here
+    return `INVENTORY processed: ${JSON.stringify(data)}`;
   }
 }
